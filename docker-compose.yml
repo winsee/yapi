@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  yapi:
+    build: ./
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - net-yapi 
+  db:
+    image: mongo
+    networks:
+      - net-yapi
+networks:
+  net-yapi:
